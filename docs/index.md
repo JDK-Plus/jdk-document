@@ -1,13 +1,25 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: Evan's blog
-tagline: Web前端技术博客，积跬步以至千里，致敬每个爱学习的你。
+heroText: JDK-PLUS
+tagline: 必须敢于正视，这才可望敢想、敢说、敢做、敢当。
 # actionText: 立刻进入 →
 # actionLink: /web/
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
+  - title: JVM
+    details: JVM源代码情景分析
+    link: / # 可选
+    imgUrl: /img/web.png # 可选
+  - title: Redis
+    details: Redis源代码情景分析
+    link: / # 可选
+    imgUrl: /img/web.png # 可选
+  - title: 设计模式
+    details: 如何优雅的写代码
+    link: / # 可选
+    imgUrl: /img/web.png # 可选
   - title: 前端
     details: JavaScript、ES6、Vue框架等前端技术
     link: /web/ # 可选

@@ -1,17 +1,17 @@
 {
-  "name": "vuepress-theme-vdoing",
+  "name": "jdk.plus",
   "version": "1.8.3",
-  "description": "Vdoing theme for VuePress. 一个基于VuePress的知识管理兼博客主题。",
+  "description": "https://jdk.plus",
   "author": {
-    "name": "gaoyi(Evan) Xu"
+    "name": "JDK-PLUS"
   },
-  "homepage": "https://github.com/xugaoyi/vuepress-theme-vdoing#readme",
+  "homepage": "https://github.com/JDK-Plus/doc.gi#readme",
   "bugs": {
-    "url": "https://github.com/xugaoyi/vuepress-theme-vdoing/issues"
+    "url": "https://github.com/JDK-Plus/doc.gi/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xugaoyi/vuepress-theme-vdoing.git"
+    "url": "git+https://github.com/JDK-Plus/doc.gi"
   },
   "dependencies": {
     "@better-scroll/core": "^2.0.0-beta.6",
@@ -41,7 +41,7 @@
   "license": "MIT",
   "main": "index.js",
   "maintainers": [{
-    "name": "Evan xu",
-    "email": "894072666@qq.com"
+    "name": "jdk.plus",
+    "email": "admin@jdk.plus"
   }]
 }

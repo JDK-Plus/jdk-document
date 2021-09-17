@@ -1,7 +1,13 @@
+#!/bin/bash
+
 #!/usr/bin/env sh
 
 # 确保脚本抛出遇到的错误
 set -e
+
+npm install -D vuepress
+
+npm install
 
 # 生成静态文件
 npm run build
@@ -9,22 +15,20 @@ npm run build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# deploy to github pages
-echo 'b.xugaoyi.com' > CNAME
+# 如果是发布到自定义域名
+echo 'jdk.plus' > CNAME
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  msg='deploy'
-  githubUrl=git@github.com:JDK-Plus/doc.git
-else
-  msg='来自github actions的自动部署'
-  githubUrl=https://Pf-G:${GITHUB_TOKEN}@github.com/JDK-Plus/doc.git
-  git config --global user.name "admin"
-  git config --global user.email "admin@jdk.plus"
-fi
+git config --global user.email "deploy@jdk.plus"
+git config --global user.name "deploy"
+
 git init
 git add -A
-git commit -m "${msg}"
-git push -f $githubUrl master:gh_pages # 推送到github gh-pages分支
+git commit -m 'deploy'
+
+# 如果发布到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+
+#git push -f git@github.com:JDK-Plus/jdk-document.git master
 
 cd -
-rm -rf docs/.vuepress/dist
+

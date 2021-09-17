@@ -33,7 +33,7 @@ module.exports = [
         },
         {
           title: '通过百度搜索本站的',
-          frontUrl: 'https://www.baidu.com/s?wd=site%3Axugaoyi.com%20',
+          frontUrl: 'https://www.baidu.com/s?wd=site%3Ajdk.plus%20',
         },
       ],
     },
@@ -83,11 +83,11 @@ module.exports = [
     {
       choosen: 'gitalk',
       options: {
-        clientID: 'a6e1355287947096b88b',
-        clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-        repo: 'blog-gitalk-comment', // GitHub 仓库
-        owner: 'xugaoyi', // GitHub仓库所有者
-        admin: ['xugaoyi'], // 对仓库有写权限的人
+        clientID: 'f257f47b99a7b94d77d4',
+        clientSecret: '45ef29a3cac2e7c32cf8c0de5556a97be4676f59',
+        repo: 'doc', // GitHub 仓库
+        owner: 'JDK-PLUS', // GitHub仓库所有者
+        admin: ['admin@jdk.plus'], // 对仓库有写权限的人
         // distractionFreeMode: true,
         pagerDirection: 'last', // 'first'正序 | 'last'倒序
         id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
@@ -107,4 +107,21 @@ module.exports = [
       },
     },
   ],
+  [
+    'ribbon',
+    {
+      size: 90, // width of the ribbon, default: 90
+      opacity: 0.8, // opacity of the ribbon, default: 0.3
+      zIndex: -1, // z-index property of the background, default: -1
+    },
+  ],
+  [
+    'cursor-effects',
+    {
+      size: 2, // size of the particle, default: 2
+      shape: ['star' | 'circle'], // shape of the particle, default: 'star'
+      zIndex: 999999999, // z-index property of the canvas, default: 999999999
+    },
+  ],
+
 ]
