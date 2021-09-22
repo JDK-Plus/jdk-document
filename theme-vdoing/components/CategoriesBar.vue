@@ -1,5 +1,5 @@
 <template>
-  <div class="categories-wrapper card-box">
+  <div class="categories-wrapper card-box" v-if="this.$themeConfig.categoriesBar.show">
     <router-link
       to="/categories/"
       class="title iconfont icon-wenjianjia"

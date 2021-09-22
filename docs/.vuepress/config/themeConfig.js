@@ -50,11 +50,19 @@ module.exports = {
     name: 'jdk-plus', // 必需
     link: 'https://github.com/JDK-Plus', // 可选的
   },
+  categoriesBar:{
+    // 分类信息
+    show: false,
+  },
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar: 'https://jdk.plus/img/EB-logo.png',
     name: 'JDK-PLUS',
     slogan: '沉着、勇猛、有辨别、不自私。',
+    show: false,
+  },
+  tagBar:{
+    show:false
   },
   social: {
     // 社交图标，显示于博主信息栏和页脚栏

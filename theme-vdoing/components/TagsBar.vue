@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-wrapper card-box">
+  <div class="tags-wrapper card-box" v-if="this.$themeConfig.tagBar.show">
     <router-link
       to="/tags/"
       class="title iconfont icon-biaoqian1"

@@ -1,5 +1,5 @@
 <template>
-  <aside class="blogger-wrapper card-box">
+  <aside class="blogger-wrapper card-box"  v-if="this.$themeConfig.blogger.show">
     <div class="avatar">
       <img :src="blogger.avatar" alt="头像" title="我好看吗" />
     </div>
