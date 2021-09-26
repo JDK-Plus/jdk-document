@@ -3,8 +3,8 @@ home: true
 heroImage: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png
 heroText: JDK-PLUS
 tagline: 🚀必须敢于正视，这才敢想、敢做、敢当。
-actionText: 开始使用 →
-actionLink: /pages/a2f161/
+actionText: 开始阅读 →
+actionLink: /pages/8cbb63/
 bannerBg: none # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
