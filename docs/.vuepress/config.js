@@ -78,7 +78,7 @@ module.exports = {
         {
           iconClass: 'icon-youjian',
           title: '发邮件',
-          link: 'mailto:admin@jdk.plus'
+          link: 'mailto:dev@jdk.plus'
         },
         {
           iconClass: 'icon-github',
@@ -89,7 +89,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2021, // 博客创建年份
-      copyrightInfo: 'JDK-PLUS | admin@jdk.plus | MIT License', // 博客版权信息，支持a标签
+      copyrightInfo: 'JDK-PLUS | dev@jdk.plus | MIT License', // 博客版权信息，支持a标签
     },
     htmlModules,
   },
