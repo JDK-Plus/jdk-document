@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png
+heroImage: /img/jdk-plus.png
 heroText: JDK-PLUS
 tagline: 🚀必须敢于正视，这才敢想、敢做、敢当。
 actionText: 开始阅读 →
@@ -19,7 +19,9 @@ features: # 可选的
 postList: none
 ---
 
-**加入我们(dev@jdk.plus):**
+**加入我们:**
+
+请发送邮件至 [dev@jdk.plus](mailto:dev@jdk.plus), 说明来意，简单自我介绍，并备注自己的github账号，由管理员来邀请入组。
 
 ```bash
 

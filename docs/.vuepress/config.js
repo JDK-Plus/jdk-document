@@ -31,7 +31,7 @@ module.exports = {
   themeConfig: { // 主题配置
     nav,
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    logo: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png', // 导航栏logo
+    logo: '/img/jdk-plus.png', // 导航栏logo
     repo: 'JDK-Plus/doc', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 更新的时间，及前缀文字   string | boolean (取值为git提交时间)
@@ -98,6 +98,35 @@ module.exports = {
       color: '#11a8cd', // 爱心颜色，默认随机色
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     }],
+    [
+      'vuepress-plugin-zooming', // 放大图片
+      {
+        selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
+        options: {
+          bgColor: 'rgba(0,0,0,0.6)',
+        },
+      },
+    ],
+    [
+      'vuepress-plugin-comment', // 评论
+      {
+        choosen: 'gitalk',
+        options: {
+          clientID: 'f257f47b99a7b94d77d4',
+          clientSecret: '45ef29a3cac2e7c32cf8c0de5556a97be4676f59',
+          repo: 'doc', // GitHub 仓库
+          owner: 'JDK-PLUS', // GitHub仓库所有者
+          admin: ['admin@jdk.plus'], // 对仓库有写权限的人
+          // distractionFreeMode: true,
+          pagerDirection: 'last', // 'first'正序 | 'last'倒序
+          id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
+          title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
+          labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
+          body:
+              '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
+        },
+      },
+    ],
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
@@ -159,6 +188,7 @@ module.exports = {
       }
     ]
   ],
+
   // configureWebpack: {
   //   //webpack别名 如![Image from alias](~@alias/image.png)
   //   resolve: {
