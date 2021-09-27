@@ -19,6 +19,19 @@ features: # 可选的
 postList: none
 ---
 
+**加入我们(dev@jdk.plus):**
+
+```bash
+
+# 拷贝源仓库
+git clone https://github.com/JDK-Plus/doc.git 
+
+# 安装依赖
+npm install
+
+# 运行预览
+npm run dev
+```
 
 <br/>
 <p align="center">
