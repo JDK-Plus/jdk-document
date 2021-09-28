@@ -116,7 +116,7 @@ module.exports = {
           clientSecret: '45ef29a3cac2e7c32cf8c0de5556a97be4676f59',
           repo: 'doc', // GitHub 仓库
           owner: 'JDK-PLUS', // GitHub仓库所有者
-          admin: ['admin@jdk.plus'], // 对仓库有写权限的人
+          admin: ['Pf-G'], // 对仓库有写权限的人
           // distractionFreeMode: true,
           pagerDirection: 'last', // 'first'正序 | 'last'倒序
           id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
