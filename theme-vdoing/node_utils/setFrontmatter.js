@@ -60,6 +60,7 @@ tags:
       const fmData = `---
 title: ${file.name}
 date: ${dateStr}
+comment: ${themeConfig.comment}
 permalink: ${getPermalink()}${file.filePath.indexOf('_posts') > -1 ? '\r\nsidebar: auto' : ''}${cateStr}${tagsStr}
 ---`;
 
