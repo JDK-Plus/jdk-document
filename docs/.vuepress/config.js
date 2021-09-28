@@ -43,6 +43,24 @@ module.exports = {
     // 以下配置是Vdoing主题改动的和新增的配置
     sidebar: { mode: 'structuring', collapsable: false }, // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
 
+    categoriesBar:{
+      // 分类信息
+      show: false,
+    },
+    editLinks: true, // 启用编辑
+    editLinkText: '编辑',
+
+    blogger: {
+      // 博主信息，显示在首页侧边栏
+      avatar: 'https://jdk.plus/img/EB-logo.png',
+      name: 'JDK-PLUS',
+      slogan: '沉着、勇猛、有辨别、不自私。',
+      show: false,
+    },
+    tagBar:{
+      show:false
+    },
+
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
     updateBar: { // 最近更新栏
       showToArticle: false, // 显示到文章页底部，默认true
