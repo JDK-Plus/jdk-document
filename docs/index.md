@@ -23,24 +23,15 @@ postList: none
 
 请发送邮件至 [dev@jdk.plus](mailto:dev@jdk.plus), 说明来意，简单自我介绍，并备注自己的github账号，由管理员来邀请入组。
 
-```bash
-
-# 拷贝源仓库
-git clone https://github.com/JDK-Plus/doc.git 
-
-# 安装依赖
-npm install
-
-# 运行预览
-npm run dev
-```
 
 <br/>
 <p align="center">
-  <a href="https://www.npmjs.com/package/JDK-PLUS" target="_blank"><img src="https://img.shields.io/npm/v/JDK-PLUS" alt="npm" class="no-zoom"></a>
-  <a href="https://www.npmjs.com/package/JDK-PLUS" target="_blank"><img src="https://img.shields.io/npm/dt/JDK-PLUS" alt="npm" class="no-zoom"></a>
-  <a href="https://github.com/JDK-Plus/doc.git" target="_blank"><img src='https://img.shields.io/github/stars/xugaoyi/JDK-PLUS' alt='GitHub stars' class="no-zoom"></a>
-  <a href="https://github.com/JDK-Plus/doc.git" target="_blank"><img src='https://img.shields.io/github/forks/xugaoyi/JDK-PLUS' alt='GitHub forks' class="no-zoom"></a>
+
+[comment]: <> (  <a href="https://www.npmjs.com/package/JDK-PLUS" target="_blank"><img src="https://img.shields.io/npm/v/JDK-PLUS" alt="npm" class="no-zoom"></a>)
+
+[comment]: <> (  <a href="https://www.npmjs.com/package/JDK-PLUS" target="_blank"><img src="https://img.shields.io/npm/dt/JDK-PLUS" alt="npm" class="no-zoom"></a>)
+  <a href="https://github.com/JDK-Plus/doc.git" target="_blank"><img src='https://img.shields.io/github/stars/JDK-Plus/doc' alt='GitHub stars' class="no-zoom"></a>
+  <a href="https://github.com/JDK-Plus/doc.git" target="_blank"><img src='https://img.shields.io/github/forks/JDK-Plus/doc' alt='GitHub forks' class="no-zoom"></a>
 </p>
 
 [comment]: <> (## 🎖特别用户)
