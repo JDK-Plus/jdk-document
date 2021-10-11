@@ -1,5 +1,5 @@
 <template>
-  <vue-particle-line>
+<!--  <vue-particle-line>-->
     <div class="home-wrapper">
       <!-- banner块 s -->
       <div
@@ -159,7 +159,7 @@
         </template>
       </MainLayout>
     </div>
-  </vue-particle-line>
+<!--  </vue-particle-line>-->
 </template>
 
 <script>

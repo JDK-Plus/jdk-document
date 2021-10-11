@@ -1,6 +1,6 @@
 <template>
 
-  <vue-particle-line>
+<!--  <vue-particle-line>-->
     <div>
       <main class="page">
 
@@ -41,7 +41,7 @@
         />
       </main>
     </div>
-  </vue-particle-line>
+<!--  </vue-particle-line>-->
 </template>
 
 <script>
