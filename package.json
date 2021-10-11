@@ -28,8 +28,9 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "particles.js": "^2.0.0",
+    "vuepress-plugin-cat": "^1.0.3",
     "vuepress-plugin-comment": "^0.7.3",
-    "vuepress-plugin-element-tabs": "^0.2.8",
-    "particles.js": "^2.0.0"
+    "vuepress-plugin-element-tabs": "^0.2.8"
   }
 }
