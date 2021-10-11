@@ -118,6 +118,10 @@ module.exports = {
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     }],
     [
+      "vuepress-plugin-cat",
+      {}
+    ],
+    [
       'vuepress-plugin-zooming', // 放大图片
       {
         selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
