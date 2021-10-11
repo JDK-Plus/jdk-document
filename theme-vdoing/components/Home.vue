@@ -1,163 +1,165 @@
 <template>
-  <div class="home-wrapper">
-    <!-- banner块 s -->
-    <div
-      class="banner"
-      :class="{ 'hide-banner': !showBanner }"
-      :style="bannerBgStyle"
-    >
+  <vue-particle-line>
+    <div class="home-wrapper">
+      <!-- banner块 s -->
       <div
-        class="banner-conent"
-        :style="
+          class="banner"
+          :class="{ 'hide-banner': !showBanner }"
+          :style="bannerBgStyle"
+      >
+        <div
+            class="banner-conent"
+            :style="
           !homeData.features && !homeData.heroImage && `padding-top: 7rem`
         "
-      >
-        <header class="hero">
-          <img
-            v-if="homeData.heroImage"
-            :src="$withBase(homeData.heroImage)"
-            :alt="homeData.heroAlt"
-          />
-          <h1 v-if="homeData.heroText" id="main-title">
-            {{ homeData.heroText }}
-          </h1>
-          <p v-if="homeData.tagline" class="description">
-            {{ homeData.tagline }}
-          </p>
-          <p class="action" v-if="homeData.actionText && homeData.actionLink">
-            <NavLink class="action-button" :item="actionLink" />
-          </p>
-        </header>
+        >
+          <header class="hero">
+            <img
+                v-if="homeData.heroImage"
+                :src="$withBase(homeData.heroImage)"
+                :alt="homeData.heroAlt"
+            />
+            <h1 v-if="homeData.heroText" id="main-title">
+              {{ homeData.heroText }}
+            </h1>
+            <p v-if="homeData.tagline" class="description">
+              {{ homeData.tagline }}
+            </p>
+            <p class="action" v-if="homeData.actionText && homeData.actionLink">
+              <NavLink class="action-button" :item="actionLink" />
+            </p>
+          </header>
 
-        <!-- PC端features块 s -->
-        <div class="features" v-if="hasFeatures && !isMQMobile">
-          <div
-            class="feature"
-            v-for="(feature, index) in homeData.features"
-            :key="index"
-          >
-            <router-link v-if="feature.link" :to="feature.link">
-              <img
-                class="feature-img"
-                v-if="feature.imgUrl"
-                :src="$withBase(feature.imgUrl)"
-                :alt="feature.title"
-              />
-              <h2>{{ feature.title }}</h2>
-              <p>{{ feature.details }}</p>
-            </router-link>
-            <a v-else href="javascript:;">
-              <img
-                class="feature-img"
-                v-if="feature.imgUrl"
-                :src="$withBase(feature.imgUrl)"
-                :alt="feature.title"
-              />
-              <h2>{{ feature.title }}</h2>
-              <p>{{ feature.details }}</p>
-            </a>
-          </div>
-        </div>
-        <!-- PC端features块 e -->
-      </div>
-
-      <!-- 移动端features块 s -->
-      <!-- isMQMobile放到v-if上线后会报错 -->
-      <div class="slide-banner" v-if="hasFeatures" v-show="isMQMobile">
-        <div class="banner-wrapper">
-          <div class="slide-banner-scroll" ref="slide">
-            <div class="slide-banner-wrapper">
-              <div
-                class="slide-item"
+          <!-- PC端features块 s -->
+          <div class="features" v-if="hasFeatures && !isMQMobile">
+            <div
+                class="feature"
                 v-for="(feature, index) in homeData.features"
                 :key="index"
-              >
-                <router-link v-if="feature.link" :to="feature.link">
-                  <img
+            >
+              <router-link v-if="feature.link" :to="feature.link">
+                <img
                     class="feature-img"
                     v-if="feature.imgUrl"
                     :src="$withBase(feature.imgUrl)"
                     :alt="feature.title"
-                  />
-                  <h2>{{ feature.title }}</h2>
-                  <p>{{ feature.details }}</p>
-                </router-link>
-                <a v-else href="javascript:;">
-                  <img
+                />
+                <h2>{{ feature.title }}</h2>
+                <p>{{ feature.details }}</p>
+              </router-link>
+              <a v-else href="javascript:;">
+                <img
                     class="feature-img"
                     v-if="feature.imgUrl"
                     :src="$withBase(feature.imgUrl)"
                     :alt="feature.title"
-                  />
-                  <h2>{{ feature.title }}</h2>
-                  <p>{{ feature.details }}</p>
-                </a>
-              </div>
+                />
+                <h2>{{ feature.title }}</h2>
+                <p>{{ feature.details }}</p>
+              </a>
             </div>
           </div>
-          <div class="docs-wrapper">
+          <!-- PC端features块 e -->
+        </div>
+
+        <!-- 移动端features块 s -->
+        <!-- isMQMobile放到v-if上线后会报错 -->
+        <div class="slide-banner" v-if="hasFeatures" v-show="isMQMobile">
+          <div class="banner-wrapper">
+            <div class="slide-banner-scroll" ref="slide">
+              <div class="slide-banner-wrapper">
+                <div
+                    class="slide-item"
+                    v-for="(feature, index) in homeData.features"
+                    :key="index"
+                >
+                  <router-link v-if="feature.link" :to="feature.link">
+                    <img
+                        class="feature-img"
+                        v-if="feature.imgUrl"
+                        :src="$withBase(feature.imgUrl)"
+                        :alt="feature.title"
+                    />
+                    <h2>{{ feature.title }}</h2>
+                    <p>{{ feature.details }}</p>
+                  </router-link>
+                  <a v-else href="javascript:;">
+                    <img
+                        class="feature-img"
+                        v-if="feature.imgUrl"
+                        :src="$withBase(feature.imgUrl)"
+                        :alt="feature.title"
+                    />
+                    <h2>{{ feature.title }}</h2>
+                    <p>{{ feature.details }}</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="docs-wrapper">
             <span
-              class="doc"
-              v-for="(item, index) in homeData.features.length"
-              :key="index"
-              :class="{ active: currentPageIndex === index }"
+                class="doc"
+                v-for="(item, index) in homeData.features.length"
+                :key="index"
+                :class="{ active: currentPageIndex === index }"
             ></span>
+            </div>
           </div>
         </div>
+        <!-- 移动端features块 e -->
       </div>
-      <!-- 移动端features块 e -->
-    </div>
-    <!-- banner块 e -->
+      <!-- banner块 e -->
 
-    <MainLayout>
-      <template #mainLeft>
-        <!-- 简约版文章列表 -->
-        <UpdateArticle
-          class="card-box"
-          v-if="homeData.postList === 'simple'"
-          :length="homeData.simplePostListLength || 10"
-        />
-
-        <!-- 详情版文章列表 -->
-        <template
-          v-else-if="!homeData.postList || homeData.postList === 'detailed'"
-        >
-          <PostList :currentPage="currentPage" :perPage="perPage" />
-          <Pagination
-            :total="total"
-            :perPage="perPage"
-            :currentPage="currentPage"
-            @getCurrentPage="handlePagination"
-            v-show="Math.ceil(total / perPage) > 1"
+      <MainLayout>
+        <template #mainLeft>
+          <!-- 简约版文章列表 -->
+          <UpdateArticle
+              class="card-box"
+              v-if="homeData.postList === 'simple'"
+              :length="homeData.simplePostListLength || 10"
           />
+
+          <!-- 详情版文章列表 -->
+          <template
+              v-else-if="!homeData.postList || homeData.postList === 'detailed'"
+          >
+            <PostList :currentPage="currentPage" :perPage="perPage" />
+            <Pagination
+                :total="total"
+                :perPage="perPage"
+                :currentPage="currentPage"
+                @getCurrentPage="handlePagination"
+                v-show="Math.ceil(total / perPage) > 1"
+            />
+          </template>
+
+          <Content class="theme-vdoing-content custom card-box" />
         </template>
 
-        <Content class="theme-vdoing-content custom card-box" />
-      </template>
-
-      <template #mainRight>
-        <BloggerBar v-if="$themeConfig.blogger" />
-        <CategoriesBar
-          v-if="
+        <template #mainRight>
+          <BloggerBar v-if="$themeConfig.blogger" />
+          <CategoriesBar
+              v-if="
             $themeConfig.category !== false &&
             $categoriesAndTags.categories.length
           "
-          :categoriesData="$categoriesAndTags.categories"
-          :length="10"
-        />
-        <TagsBar
-          v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length"
-          :tagsData="$categoriesAndTags.tags"
-          :length="30"
-        />
-        <div
-          class="custom-html-box card-box"
-          v-if="homeSidebarB"
-          v-html="homeSidebarB"
-        ></div>
-      </template>
-    </MainLayout>
-  </div>
+              :categoriesData="$categoriesAndTags.categories"
+              :length="10"
+          />
+          <TagsBar
+              v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length"
+              :tagsData="$categoriesAndTags.tags"
+              :length="30"
+          />
+          <div
+              class="custom-html-box card-box"
+              v-if="homeSidebarB"
+              v-html="homeSidebarB"
+          ></div>
+        </template>
+      </MainLayout>
+    </div>
+  </vue-particle-line>
 </template>
 
 <script>

@@ -2,6 +2,10 @@
 import Vue from 'vue'
 import CodeBlock from "@theme/global-components/CodeBlock.vue"
 import CodeGroup from "@theme/global-components/CodeGroup.vue"
+import vueParticleLine from 'vue-particle-line'
+import 'vue-particle-line/dist/vue-particle-line.css'
+
+Vue.use(vueParticleLine)
 // Register the Vue global component
 Vue.component(CodeBlock)
 Vue.component(CodeGroup)
