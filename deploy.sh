@@ -5,7 +5,8 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-npm config set registry https://registry.npmjs.org
+#npm config set registry https://registry.npmjs.org
+npm config set registry https://registry.npm.taobao.org
 
 
 npm install -D vuepress
