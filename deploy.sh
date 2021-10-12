@@ -15,6 +15,8 @@ npm install
 # 生成静态文件
 npm run build
 
+WORKSPACE=$(pwd)
+
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
@@ -33,5 +35,4 @@ git commit -m 'deploy'
 
 #git push -f git@github.com:JDK-Plus/jdk-document.git master
 
-cd -
-
+cd ${WORKSPACE}

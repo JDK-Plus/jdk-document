@@ -1,44 +1,47 @@
 <template>
-  <div>
-    <main class="page">
 
-      <div :class="`theme-vdoing-wrapper ${bgStyle}`">
-        <ArticleInfo v-if="isArticle()" />
-        <component
-          class="theme-vdoing-content"
-          v-if="pageComponent"
-          :is="pageComponent"
-        />
+<!--  <vue-particle-line>-->
+    <div>
+      <main class="page">
 
-        <div class="content-wrapper">
-          <RightMenu v-if="showRightMenu" />
-          <h1 v-if="showTitle">
-            <img
-              :src="currentBadge"
-              v-if="$themeConfig.titleBadge === false ? false : true"
-            />
-            {{this.$page.title}}
-          </h1>
-          <slot name="top" v-if="isShowSlotT" />
+        <div :class="`theme-vdoing-wrapper ${bgStyle}`">
+          <ArticleInfo v-if="isArticle()" />
+          <component
+              class="theme-vdoing-content"
+              v-if="pageComponent"
+              :is="pageComponent"
+          />
 
-          <Content class="theme-vdoing-content" />
+          <div class="content-wrapper">
+            <RightMenu v-if="showRightMenu" />
+            <h1 v-if="showTitle">
+              <img
+                  :src="currentBadge"
+                  v-if="$themeConfig.titleBadge === false ? false : true"
+              />
+              {{this.$page.title}}
+            </h1>
+            <slot name="top" v-if="isShowSlotT" />
+
+            <Content class="theme-vdoing-content" />
+          </div>
+          <slot name="bottom"  v-if="isShowSlotB" />
+          <PageEdit />
+
+
+          <PageNav v-bind="{ sidebarItems }" />
         </div>
-  <slot name="bottom"  v-if="isShowSlotB" />
-        <PageEdit />
-
-
-        <PageNav v-bind="{ sidebarItems }" />
-      </div>
 
 
 
-      <UpdateArticle
-        :length="3"
-        :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
-        v-if="isShowUpdateBar"
-      />
-    </main>
-  </div>
+        <UpdateArticle
+            :length="3"
+            :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
+            v-if="isShowUpdateBar"
+        />
+      </main>
+    </div>
+<!--  </vue-particle-line>-->
 </template>
 
 <script>
