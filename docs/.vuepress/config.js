@@ -121,8 +121,8 @@ module.exports = {
             "vuepress-plugin-cat",
             {}
         ],
-        ["sakura", {
-            num: 100,  // 默认数量
+        ["vuepress-plugin-sakura", {
+            num: 50,  // 默认数量
             show: true, //  是否显示
             zIndex: 1,   // 层级
             img: {
