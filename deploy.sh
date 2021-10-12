@@ -6,12 +6,12 @@
 set -e
 
 #npm config set registry https://registry.npmjs.org
-npm config set registry https://registry.npm.taobao.org
+#npm config set registry https://registry.npm.taobao.org
 
 
-npm install -D vuepress
+npm install -g vuepress --registry=https://registry.npm.taobao.org
 
-npm install
+npm install --registry=https://registry.npm.taobao.org
 
 # 生成静态文件
 npm run build
@@ -29,10 +29,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# 如果发布到 https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-#git push -f git@github.com:JDK-Plus/jdk-document.git master
+#git push -f git@github.com:JDK-Plus/doc.git gh_pages
 
 cd -
 
