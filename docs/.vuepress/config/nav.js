@@ -1,5 +1,10 @@
 module.exports = [
   { text: '首页', link: '/' },
+  { text: '工程组件', link: '/',
+    items: [
+      { text: 'validator-plus', link: '/pages/13728c/' },
+    ]
+  },
   {
     text: '文档指南', link: '/pages/a2f161/', items: [
       { text: '主题初衷与诞生', link: '/pages/52d5c3/' },
