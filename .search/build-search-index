@@ -1,0 +1,6 @@
+#!/bin/bash
+
+WORK_DIR=$(dirname $0)
+
+# https://www.algolia.com/apps/USWT2WZ47N/explorer/browse/jdk-plus-doc?searchMode=search
+docker run -it --env-file=${WORK_DIR}/.env -e "CONFIG=$(cat ${WORK_DIR}/config.json | jq -r tostring)" algolia/docsearch-scraper
