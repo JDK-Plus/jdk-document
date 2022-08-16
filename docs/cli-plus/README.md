@@ -36,7 +36,7 @@ This is a framework for writing command-line instruction sets using java
 <dependency>
     <groupId>plus.jdk</groupId>
     <artifactId>cli-plus</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
