@@ -26,7 +26,7 @@ tag:
 <dependency>
     <groupId>plus.jdk.grpc</groupId>
     <artifactId>spring-boot-starter-grpc</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 </dependency>
 ```
 
@@ -35,6 +35,8 @@ tag:
 ```
 # Whether to open grpc server
 plus.jdk.grpc.enabled=true
+
+plus.jdk.grpc.client.enabled=true
 
 # designated port
 plus.jdk.grpc.port=10400
