@@ -28,7 +28,7 @@ tag:
 <dependency>
     <groupId>plus.jdk</groupId>
     <artifactId>spring-boot-starter-websocket</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 ## 配置
@@ -185,7 +185,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import plus.jdk.broadcast.test.session.MyWsSession;
 import plus.jdk.websocket.annotations.*;
 
-@Component
 @WebsocketHandler(values = {"/ws/message"})
 public class DemoHandler {
 
