@@ -1,0 +1,1 @@
+import{_ as o}from"./cli-plus-use.544bcf12.js";import{_ as t}from"./plugin-vue_export-helper.21dcd24c.js";import{o as r,c as _,a as e}from"./app.e1fdb64f.js";const a={},s=e("p",null,[e("img",{src:o,alt:"",loading:"lazy"})],-1),c=[s];function n(i,l){return r(),_("div",null,c)}var p=t(a,[["render",n],["__file","index.html.vue"]]);export{p as default};
