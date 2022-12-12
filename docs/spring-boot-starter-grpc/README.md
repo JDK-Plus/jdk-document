@@ -98,36 +98,24 @@ message HelloReply {
 
 ### How to define a Grpc service according to the above Protobuf structure
 
-```java
-package plus.jdk.grpc.test.grpc;
+#### The definition declares a remote cluster of servers
 
-import io.grpc.stub.StreamObserver;
-import plus.jdk.grpc.annotation.GrpcService;
-import plus.jdk.grpc.test.grpc.interceptor.AuthServerInterceptor;
-import plus.jdk.grpc.test.protoc.GreeterGrpc;
-import plus.jdk.grpc.test.protoc.HelloReply;
-import plus.jdk.grpc.test.protoc.HelloRequest;
+```bash
 
-@GrpcService(interceptors = {AuthServerInterceptor.class})
-public class GreeterImplService extends GreeterGrpc.GreeterImplBase {
+# Example Start the configuration of the client
+plus.jdk.grpc.client.enabled=true
 
-    @Override
-    public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
-        HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + request.getName()).build();
-        responseObserver.onNext(reply);
-        responseObserver.onCompleted();
-    }
+# scheme address of the user-defined service
+plus.jdk.grpc.client.resolvers[0].scheme=MyGrpc
 
-    @Override
-    public void sayHelloAgain(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
-        HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + request.getName()).build();
-        responseObserver.onNext(reply);
-        responseObserver.onCompleted();
-    }
-}
+# Specify the host address of the service
+plus.jdk.grpc.client.resolvers[0].service-name=grpc-service-prod
+
+# Specifies the list of remote GRPC services
+plus.jdk.grpc.client.resolvers[0].hosts[0]=192.168.1.108:10202
+plus.jdk.grpc.client.resolvers[0].hosts[1]=192.168.1.107:10202
 ```
-
-### How to call the Grpc service just defined
+#### Write code to make the remote call：
 
 ```java
 public class GRpcRunner implements ApplicationRunner {
@@ -141,7 +129,7 @@ public class GRpcRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         int port = Integer.parseInt(grpcPort);
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("127.0.0.1", port)
+        ManagedChannel channel = ManagedChannelBuilder.forTarget("MyGrpc://grpc-service-prod")
                 .usePlaintext().build();
         GreeterGrpc.GreeterBlockingStub blockingStub = grpcSubClientFactory.createStub(GreeterGrpc.GreeterBlockingStub.class, channel);
         HelloRequest request = HelloRequest.newBuilder().setName("jdk-plus").build();
