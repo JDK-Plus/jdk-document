@@ -96,7 +96,61 @@ message HelloReply {
 }
 ```
 
+### Specify the global ServiceInterceptor.
+
+You need to implement ` GrpcServiceGlobalInterceptorConfigurer ` and should be declared as a bean instance
+
+```java
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class GrpcServiceGlobalInterceptorConfigurer implements GrpcServiceInterceptorConfigurer {
+
+    private final RSACipherService rsaCipherService;
+
+    @Override
+    public void configureServerInterceptors(List<ServerInterceptor> interceptors) {
+        GrpcAuthServerInterceptor grpcAuthServerInterceptor =
+                new GrpcAuthServerInterceptor(rsaCipherService);
+        interceptors.add(grpcAuthServerInterceptor);
+    }
+}
+```
+
+
 ### How to define a Grpc service according to the above Protobuf structure
+
+```java
+package plus.jdk.grpc.test.grpc;
+
+import io.grpc.stub.StreamObserver;
+import plus.jdk.grpc.annotation.GrpcService;
+import plus.jdk.grpc.test.grpc.interceptor.AuthServerInterceptor;
+import plus.jdk.grpc.test.protoc.GreeterGrpc;
+import plus.jdk.grpc.test.protoc.HelloReply;
+import plus.jdk.grpc.test.protoc.HelloRequest;
+
+@GrpcService(interceptors = {AuthServerInterceptor.class})
+public class GreeterImplService extends GreeterGrpc.GreeterImplBase {
+
+    @Override
+    public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+        HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + request.getName()).build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void sayHelloAgain(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+        HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + request.getName()).build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+}
+```
+
+### How to call the Grpc service just defined
 
 #### The definition declares a remote cluster of servers
 
@@ -104,6 +158,9 @@ message HelloReply {
 
 # Example Start the configuration of the client
 plus.jdk.grpc.client.enabled=true
+
+# Specify a default connection address, which the @GrpcClient annotation uses by default
+plus.jdk.grpc.client.default-service=MyGrpc://grpc-service-prod
 
 # scheme address of the user-defined service
 plus.jdk.grpc.client.resolvers[0].scheme=MyGrpc
@@ -115,6 +172,27 @@ plus.jdk.grpc.client.resolvers[0].service-name=grpc-service-prod
 plus.jdk.grpc.client.resolvers[0].hosts[0]=192.168.1.108:10202
 plus.jdk.grpc.client.resolvers[0].hosts[1]=192.168.1.107:10202
 ```
+
+
+#### Specify the global 'GrpcClientInterceptor'
+
+With the above, you need to implement `GrpcClientInterceptorConfigurer` method, add the corresponding Interceptor
+
+```java
+import org.springframework.stereotype.Component;
+
+@Component
+public class GrpcClientInterceptorGlobalConfigurer implements GrpcClientInterceptorConfigurer {
+    
+
+    @Override
+    public void configureClientInterceptors(List<ClientInterceptor> interceptors) {
+        // do something
+        interceptors.add(new GrpcClientRSAInterceptor(rsaCipherService));
+    }
+}
+```
+
 #### Write code to make the remote call：
 
 ```java
@@ -131,6 +209,13 @@ public class GRpcRunner implements ApplicationRunner {
 
     @GrpcClient("MyGrpc://grpc-service-prod")
     private GreeterGrpc.GreeterBlockingStub greeterBlockingStub;
+
+    /**
+     * Here @GrpcClient default `plus.jdk.grpc.client.default-service` configuration items specified value
+     */
+    @GrpcClient
+    private GreeterGrpc.GreeterBlockingStub greeterBlockingStubDefault;
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
