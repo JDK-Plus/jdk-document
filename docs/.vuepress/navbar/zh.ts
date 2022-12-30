@@ -16,6 +16,7 @@ export const zh = navbar([
           { text: "spring-boot-starter-websocket", icon: "edit", link: "spring-boot-starter-websocket" },
           { text: "spring-boot-starter-grpc", icon: "edit", link: "spring-boot-starter-grpc" },
           { text: "spring-boot-starter-kafka", icon: "edit", link: "spring-boot-starter-kafka" },
+          { text: "spring-boot-starter-zookeeper", icon: "edit", link: "spring-boot-starter-zookeeper" },
         ],
       },
     ],
